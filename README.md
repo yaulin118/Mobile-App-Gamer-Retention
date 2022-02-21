@@ -18,4 +18,4 @@ The SQL table should be including the folloing columns:
 3. Of the players who joined, how many were retained
 4. The fractional retention (the third column divided by the second column).
 
-# Q1:
+# Q1: Is 30-day rolling retention increasing or decreasing over the lifecycle of the game?
