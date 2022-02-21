@@ -6,5 +6,5 @@ As it is the game's one-year anniversary, my manager has asked me and one other 
 
 To address the question, we used the two following tables for our investigation:
 
-Match information, including the players who matched against each other, and the outcome
-Player information, including information like the player's age and when they joined
+1. Match information, including the players who matched against each other, and the outcome
+2. Player information, including information like the player's age and when they joined
