@@ -12,4 +12,10 @@ To address the question, we used the two following tables for our investigation:
 1. Match information, including the players who matched against each other, and the outcome
 2. Player information, including information like the player's age and when they joined
 
+The SQL table should be including the folloing columns:
+1. The day in question
+2. The total number of players who joined that day
+3. Of the players who joined, how many were retained
+4. The fractional retention (the third column divided by the second column).
+
 # Q1:
