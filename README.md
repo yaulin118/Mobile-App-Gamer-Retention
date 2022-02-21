@@ -1,7 +1,7 @@
 # Background
 
-![image](https://user-images.githubusercontent.com/94856154/154996244-a208d792-ef4c-47fb-aacf-e85fcc354800.png)
-
+![image](https://user-images.githubusercontent.com/94856154/154996331-b3b41f71-8e17-4302-afc8-09b0253173d9.png)
+(Picture from Microsoft)
 
 We've been hired by a mobile game company. Like most mobile games, this game has a store where players can buy a vast array of different items. Matches are composed of two players going head-to-head against each other. These two facts mean that there is a rich store of four tables:
 
