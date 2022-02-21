@@ -1,4 +1,4 @@
-# Background
+# Background Story
 
 ![image](https://user-images.githubusercontent.com/94856154/154996331-b3b41f71-8e17-4302-afc8-09b0253173d9.png)
 (Picture from Microsoft)
@@ -11,3 +11,5 @@ To address the question, we used the two following tables for our investigation:
 
 1. Match information, including the players who matched against each other, and the outcome
 2. Player information, including information like the player's age and when they joined
+
+# Q1:
