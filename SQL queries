@@ -1,4 +1,4 @@
-4 Columns that we are using to answer the questions
+# 4 Columns that we are using to answer the questions
 
 SELECT
   joined AS Day_joined,
