@@ -18,29 +18,32 @@ The SQL table should be including the folloing columns:
 3. Of the players who joined, how many were retained
 4. The fractional retention (the third column divided by the second column).
 
-# Q1: Is 30-day rolling retention increasing or decreasing over the lifecycle of the game?
+Query:
 
-WITH incresting_decreasing AS (
-SELECT  
-SUM(Retention_Status) AS Retention_Status,
-SUM(not_Retention_Status) AS Not_Retention_Status
-FROM 
-(SELECT
-  COUNT(DISTINCT P.joined ) AS Day,
-  CASE
-    WHEN max (M.day) - p.joined >= 30 THEN 1
-END
-  AS Retention_Status,
-  CASE
-    WHEN max (M.day) - p.joined < 30 THEN 1
-END
-  AS Not_Retention_Status
-FROM
-  `howard-projects.SQL_Project_Cohort2.player_info` P
-JOIN
-  `howard-projects.SQL_Project_Cohort2.matches_info` M
-ON
-  P.player_id = M.player_id
+SELECT
+  joined AS Day_joined,
+  COUNT(player_id) Players_joined,
+  SUM(Retention_Status) Players_retained,
+  ROUND((SUM(Retention_Status)/COUNT(player_id)),2) as fraction_retention,
+
+FROM (
+  SELECT
+    p.player_id,
+    p.joined,
+    CASE
+      WHEN (MAX(M.day) - MIN(p.joined)) >= 30 THEN 1
+    ELSE 0
+  END AS Retention_Status
+  FROM
+    `howard-projects.SQL_Project_Cohort2.matches_info` m
+  JOIN
+    `howard-projects.SQL_Project_Cohort2.player_info` p
+  ON
+    p.player_id = m.player_id
+  GROUP BY
+    p.joined,
+    p.player_id) AS retention_status_players
 GROUP BY
-  P.joined))
-SELECT * FROM incresting_decreasing
+  joined
+
+# Q1: Is 30-day rolling retention increasing or decreasing over the lifecycle of the game?
