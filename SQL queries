@@ -1,4 +1,4 @@
-** ** Background Story** **
+**Background Story**
 
 SELECT
   joined AS Day_joined,
