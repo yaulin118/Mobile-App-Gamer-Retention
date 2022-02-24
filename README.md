@@ -19,3 +19,28 @@ The SQL table should be including the folloing columns:
 4. The fractional retention (the third column divided by the second column).
 
 # Q1: Is 30-day rolling retention increasing or decreasing over the lifecycle of the game?
+
+WITH incresting_decreasing AS (
+SELECT  
+SUM(Retention_Status) AS Retention_Status,
+SUM(not_Retention_Status) AS Not_Retention_Status
+FROM 
+(SELECT
+  COUNT(DISTINCT P.joined ) AS Day,
+  CASE
+    WHEN max (M.day) - p.joined >= 30 THEN 1
+END
+  AS Retention_Status,
+  CASE
+    WHEN max (M.day) - p.joined < 30 THEN 1
+END
+  AS Not_Retention_Status
+FROM
+  `howard-projects.SQL_Project_Cohort2.player_info` P
+JOIN
+  `howard-projects.SQL_Project_Cohort2.matches_info` M
+ON
+  P.player_id = M.player_id
+GROUP BY
+  P.joined))
+SELECT * FROM incresting_decreasing
