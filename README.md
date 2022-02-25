@@ -25,4 +25,7 @@ The SQL table should be including the folloing columns:
 
 We excluded the last 30 days of the year from our analysis because those who joined in the last 30 days of the year would have automatically been categorized as Not-Retained, notibily, We see a dramatically declined at the end of the year. As the result, We only choose the data from Day 1 to Day 335.
 
-By given the data above, We observed that the avergae retention rate is **65.46%** throughout the year
+By given the data above, we can observed that from the trendline, overall the retention rate was quite consistent throughout the year(Average 65.46%).
+
+
+
