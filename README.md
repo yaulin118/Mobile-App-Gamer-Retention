@@ -21,38 +21,3 @@ The SQL table should be including the folloing columns:
 
 
 # Q1: Is 30-day rolling retention increasing or decreasing over the lifecycle of the game?
-Day Joined, Age, Player count, Retained, Not Retained.
-
-SELECT
-    joined,
-    age,
-     player_count,
-    SUM(retained) AS totalRetained,
-     player_count - SUM (Retained) AS NotRetained
-FROM(
-    SELECT
-        id,
-        joined,
-        age,
-        player_count,
-        lastPlayed,
-        CASE
-            WHEN lastPlayed - joined >= 30 THEN 1
-            ELSE 0
-        END AS retained
-    FROM(
-        SELECT
-            player.player_id AS id,
-            joined,
-            age,
-            COUNT(*) OVER(PARTITION BY joined, age) AS  player_count,
-            --get the last day the player played
-            MAX(match.day) AS lastPlayed,
-        FROM `project-1-st.gamecompanydata.player_info` AS player
-        JOIN `project-1-st.gamecompanydata.matches_info` AS match
-            ON player.player_id = match.player_id
-        GROUP BY player.player_id, joined, age
-    )
-)
-GROUP BY age,  player_count, joined
-    HAVING totalRetained > 0
