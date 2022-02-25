@@ -23,9 +23,10 @@ The SQL table should be including the folloing columns:
 # Q1: Is 30-day rolling retention increasing or decreasing over the lifecycle of the game?
 ![Increasing or decreasing over the lifecycle of the game_](https://user-images.githubusercontent.com/94856154/155636714-af4473ef-619e-46f0-b7cc-c324c78c8896.png)
 
-We excluded the last 30 days of the year from our analysis because those who joined in the last 30 days of the year would have automatically been categorized as Not-Retained, notibily, We see a dramatically declined at the end of the year. As the result, We only choose the data from Day 1 to Day 335.
+We excluded the last 30 days of the year from our analysis because those who joined in the last 30 days of the year would have automatically been categorized as Not-Retained. As the result, notibily, we saw a dramatically declined at the end of the year. Therefore, we only choose the data from Day 1 to Day 335 for this project.
 
-By given the data above, we can observed that from the trendline, overall the retention rate was quite consistent throughout the year(Average 65.46%).
+By given the data above, we observed that from the trendline, overall the retention rate was quite consistent throughout the year(Average 65.46%). From a growth perspective, while the retention rate is stable in the trendline, the growth hasn't had significant increased since the Q1. There appear to be a few noticeable peaks in the retained player count (e.g. day 55 & 277), but it quickly adjusted back to the average line.
+
 
 
 
