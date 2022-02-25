@@ -18,32 +18,41 @@ The SQL table should be including the folloing columns:
 3. Of the players who joined, how many were retained
 4. The fractional retention (the third column divided by the second column).
 
-Query:
 
-SELECT
-  joined AS Day_joined,
-  COUNT(player_id) Players_joined,
-  SUM(Retention_Status) Players_retained,
-  ROUND((SUM(Retention_Status)/COUNT(player_id)),2) as fraction_retention,
-
-FROM (
-  SELECT
-    p.player_id,
-    p.joined,
-    CASE
-      WHEN (MAX(M.day) - MIN(p.joined)) >= 30 THEN 1
-    ELSE 0
-  END AS Retention_Status
-  FROM
-    `howard-projects.SQL_Project_Cohort2.matches_info` m
-  JOIN
-    `howard-projects.SQL_Project_Cohort2.player_info` p
-  ON
-    p.player_id = m.player_id
-  GROUP BY
-    p.joined,
-    p.player_id) AS retention_status_players
-GROUP BY
-  joined
 
 # Q1: Is 30-day rolling retention increasing or decreasing over the lifecycle of the game?
+Day Joined, Age, Player count, Retained, Not Retained.
+
+SELECT
+    joined,
+    age,
+     player_count,
+    SUM(retained) AS totalRetained,
+     player_count - SUM (Retained) AS NotRetained
+FROM(
+    SELECT
+        id,
+        joined,
+        age,
+        player_count,
+        lastPlayed,
+        CASE
+            WHEN lastPlayed - joined >= 30 THEN 1
+            ELSE 0
+        END AS retained
+    FROM(
+        SELECT
+            player.player_id AS id,
+            joined,
+            age,
+            COUNT(*) OVER(PARTITION BY joined, age) AS  player_count,
+            --get the last day the player played
+            MAX(match.day) AS lastPlayed,
+        FROM `project-1-st.gamecompanydata.player_info` AS player
+        JOIN `project-1-st.gamecompanydata.matches_info` AS match
+            ON player.player_id = match.player_id
+        GROUP BY player.player_id, joined, age
+    )
+)
+GROUP BY age,  player_count, joined
+    HAVING totalRetained > 0
