@@ -32,9 +32,7 @@ Given the data above, we observed that from the trendline, overall, the retentio
 
 As indicated by the visualizations provided, we have a total of 28859 people with rolling 30-day retention. The highest retention player number is located in South America, followed by North America and Oceania.
 
-It's fairly to say that the players are equally distributed in all regions since the percentage of the differences between the highest player region amount and the lowest is less than 3%. As indicated by the visualizations provided, we have a total of 28859 people with rolling 30-day retention. The highest retention player number is located in South America, followed by North America and Oceania.
-
-To sum up the indication, the region doesn't matter. Although there are some days we could see total retained players' differences in the year, the result would always regress to the reference value if we look at the pictures from a quarter to quarter basis.
+It's fairly to say that the players are equally distributed in all regions since the percentage of the differences between the highest player region amount and the lowest is less than 3%. To sum up the indication, the region doesn't matter. Although there are some days we could see total retained players' differences in the year, the result would always regress to the reference value if we look at the pictures from a quarter to quarter basis.
 
 
 
