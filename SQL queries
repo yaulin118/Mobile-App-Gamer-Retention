@@ -1,11 +1,18 @@
-***4 columns we are using for the questions***
+
+--The day in question--
+--The total number of players who joined that day--
+--Of the players who joined, how many were retained--
+--The fractional retention (the third column divided by the second column).--
+
+
+***Q1: Is 30-day rolling retention increasing or decreasing over the lifecycle of the game?***
 
 SELECT
   joined AS Day_joined,
   COUNT(player_id) Players_joined,
   SUM(Retention_Status) Players_retained,
-  ROUND((SUM(Retention_Status)/COUNT(player_id)),2) as fraction_retention,
-
+  ROUND((SUM(Retention_Status)/COUNT(player_id)),2)*100 as fractional_retention,
+   
 FROM (
   SELECT
     p.player_id,
@@ -25,3 +32,33 @@ FROM (
     p.player_id) AS retention_status_players
 GROUP BY
   joined
+
+
+***Q2: Do players with rolling 30-day retention come from specific regions?***
+
+SELECT 
+    location,
+    SUM(Retention_Status) as People_retained
+        FROM( 
+         SELECT
+            p.player_id,
+            p.joined,
+            p.location,
+            p.age,
+            CASE WHEN (MAX(M.day) - MIN(p.joined)) >= 30 THEN 1 END AS Retention_Status
+    
+            FROM
+            `howard-projects.SQL_Project_Cohort2.matches_info` m
+            JOIN
+            `howard-projects.SQL_Project_Cohort2.player_info` p
+            ON
+            p.player_id = m.player_id
+            GROUP BY
+            p.joined,
+            p.player_id,
+            p.location,
+            p.age)
+GROUP BY location
+Order by location
+LIMIT 1000
+
