@@ -36,7 +36,7 @@ It's fairly to say that the players are equally distributed in all regions since
 
 To sum up the indication, the region doesn't matter. Although there are some days we could see total retained players' differences in the year, the result would always regress to the reference value if we look at the pictures from a quarter to quarter basis.
 
-
+# Q3: Who has a higher amount people winning the game? People retained or not retained?
 
 
 
