@@ -43,6 +43,42 @@ For our deeper investigation, we wanted to see if players retained after 30 days
 
 To verify whether the statement is true or false, we first start a query to extract the winning games, then select people who are retained or not retained to make the comparison. The result solidates our presumption. We noticed that 43847 winning games include 26538 games(60%) that people are retained compared to 17309 games(40%) with people not retained. In our findings, people with more practice are more likely to have a higher winning rate, and people with a higher winning rate are more willing to be retained in this game, vice versa.
 
+'''
+
+SELECT 
+COUNT(CASE WHEN WINS = 1 AND Retention_Status = 1 THEN 0 END) AS Win_people_retained,
+COUNT(CASE WHEN WINS = 1 AND Retention_Status = 0 THEN 0 END) AS Win_people_NOT_retained
+
+FROM
+(SELECT
+    DISTINCT player_id AS Winner_ID,    
+    SUM(wins) as wins,  
+    Retention_Status,
+ 
+FROM(
+    SELECT
+    Distinct m.player_id,
+    outcome,
+    CASE WHEN outcome = "win" Then 1
+    else 0
+    END AS wins,
+    CASE WHEN outcome = "loss" Then 2
+    else 0
+    END AS loss,
+    CASE WHEN (MAX(M.day) - MIN(p.joined)) >= 30 THEN 1 -- Retained or not?
+    ELSE 0
+    END AS Retention_Status
+    FROM  `howard-projects.SQL_Project_Cohort2.matches_info` m
+    JOIN  `howard-projects.SQL_Project_Cohort2.player_info` p
+    ON  p.player_id = m.player_id
+    GROUP BY outcome, player_id)
+
+GROUP BY player_id, Retention_Status) 
+
+WHERE WINS = 1 
+
+```
+
 
 # Conclusion
 
