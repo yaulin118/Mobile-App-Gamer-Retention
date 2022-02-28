@@ -63,7 +63,7 @@ Order by location
 LIMIT 1000
 
 
-***Q3: Does people retained or not retained has more people winning the game?***
+***Q3:Does people retained or not retained has more winning games?***
 
 
 SELECT 
