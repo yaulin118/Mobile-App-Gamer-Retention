@@ -44,10 +44,9 @@ For our deeper investigation, we wanted to see if players retained after 30 days
 To verify whether the statement is true or false, we first start a query to extract the winning games, then select people who are retained or not retained to make the comparison. The result solidates our presumption. We noticed that 43847 winning games include 26538 games(60%) that people are retained compared to 17309 games(40%) with people not retained. In our findings, people with more practice are more likely to have a higher winning rate, and people with a higher winning rate are more willing to be retained in this game, vice versa.
 
 
-**Conclusion**
+# Conclusion
 
 ![image](https://user-images.githubusercontent.com/94856154/156036765-f3ee23b5-f418-4425-9a08-4609860a39bc.png)
 
-Overall, we were able to engineer some new features in our data to explore. While there is much more we could further investigate, we were able to confirm that our mobile game has been performing quite well in engaging new players based on our 30-day retention. We saw some patterns in player behaviour relative to win-streaks that did not appear to correlate with their 30-day retention. This gave us a little insight in guiding us towards other directions in terms of setting up new engagement strategies to further grow our player base.
-
+In short sentences, the datasets provided us with some threads that was able to help us find the trend. While there is much more we could further investigate, we were able to tell the retention rate is quite stable throughout the year. However, it isn't necessarily a negative indication, but it's worth focusing on long-term strategies. Also, we saw players are distributed to all regions, which indicates that our marketing strategies is equally launched by geography. Last but not least, in our findings, people with a higher winning rate are more willing to be retained in this game. If we want to increase retention, we could perhaps redesign the winning criteria to increase the retention rate. 
 
