@@ -36,7 +36,7 @@ It's fairly to say that the players are equally distributed in all regions since
 
 To sum up the indication, the region doesn't matter. Although there are some days we could see total retained players' differences in the year, the result would always regress to the reference value if we look at the pictures from a quarter to quarter basis.
 
-# Q3: Does people retained or not retained has more people winning the game?
+# Q3: Does people retained or not retained has more winning games?
 ![1](https://user-images.githubusercontent.com/94856154/156032497-1f20d64c-8788-4ec1-a869-630a11a1a96d.png)
 
 For our deeper investigation, we wanted to see if players who were retained after 30 days had more winning rounds compared to those that were not retained but winned the games. We presumebly think that people who are retained would be most likely to win more games since they are more expereinced in playing it. 
