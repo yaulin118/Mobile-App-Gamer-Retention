@@ -27,6 +27,33 @@ We excluded the last 30 days of the year from our analysis because those who joi
 
 Given the data above, we observed that from the trendline, overall, the retention rate was relatively consistent throughout the year(Average 65.46%). From a growth perspective, while the retention rate is stable in the trendline, the growth hasn't significantly increased since the Q1. There appear to be a few noticeable peaks in the retained player count (e.g. day 55 & 277), but it quickly adjusted back to the average line. The result may be a signal to remind us, perhaps, it's time to reshift our foucs back on Long-term retention and YOY growth strategies.
 
+```
+SELECT
+  joined AS Day_joined,
+  COUNT(player_id) Players_joined,
+  SUM(Retention_Status) Players_retained,
+  ROUND((SUM(Retention_Status)/COUNT(player_id)),2)*100 as fractional_retention,  
+FROM (
+  SELECT
+    p.player_id,
+    p.joined,
+    CASE
+      WHEN (MAX(M.day) - MIN(p.joined)) >= 30 THEN 1
+    ELSE 0
+  END AS Retention_Status
+  FROM
+    `howard-projects.SQL_Project_Cohort2.matches_info` m
+  JOIN
+    `howard-projects.SQL_Project_Cohort2.player_info` p
+  ON
+    p.player_id = m.player_id
+  GROUP BY
+    p.joined,
+    p.player_id) AS retention_status_players
+GROUP BY
+  joined
+  ```
+
 # Q2: Do players with rolling 30-day retention come from specific regions?
 ![Regions with Retention](https://user-images.githubusercontent.com/94856154/155785811-1577e20a-7def-4b74-a941-93ac43973bd3.png)
 
