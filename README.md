@@ -41,6 +41,6 @@ To sum up the indication, the region doesn't matter. Although there are some day
 
 For our deeper investigation, we wanted to see if players who were retained after 30 days had more winning rounds compared to those that were not retained but winned the games. We presumebly think that people who are retained would be most likely to win more games since they are more expereinced in playing it. 
 
-To verify whether the statement is true or false, we then first start a query to extract the winning games, then selecting people who are retained or not retained to make the comparison. As 
+To verify whether the statement is true or false, we then first start a query to extract the winning games, then selecting people who are retained or not retained to make the comparison. The result solidate our presumption. We noticed that there are a total of 43847 winning games that includes 26538 of rounds that people are retained compare to 17309 of rounds with people are not retained.
 
 
