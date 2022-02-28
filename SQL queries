@@ -62,3 +62,6 @@ GROUP BY location
 Order by location
 LIMIT 1000
 
+
+***Q3: Who has a higher amount people winning the game? People retained or not retained?***
+
