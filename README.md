@@ -39,8 +39,15 @@ To sum up the indication, the region doesn't matter. Although there are some day
 # Q3: Does people retained or not retained has more winning games?
 ![1](https://user-images.githubusercontent.com/94856154/156032497-1f20d64c-8788-4ec1-a869-630a11a1a96d.png)
 
-For our deeper investigation, we wanted to see if players who were retained after 30 days had more winning rounds compared to those that were not retained but winned the games. We presumebly think that people who are retained would be most likely to win more games since they are more expereinced in playing it. 
+For our deeper investigation, we wanted to see if players retained after 30 days had more winning rounds than those not retained but winning the games. We presumably think that retained people would be most likely to win more games since they are more experienced in playing it. 
 
-To verify whether the statement is true or false, we then first start a query to extract the winning games, then selecting people who are retained or not retained to make the comparison. The result solidate our presumption. We noticed that there are a total of 43847 winning games that includes 26538 of games(60%) that people are retained compare to 17309 of games(40%) with people are not retained. 
+To verify whether the statement is true or false, we first start a query to extract the winning games, then select people who are retained or not retained to make the comparison. The result solidates our presumption. We noticed that 43847 winning games include 26538 games(60%) that people are retained compared to 17309 games(40%) with people not retained. In our findings, people with more practice are more likely to have a higher winning rate, and people with a higher winning rate are more willing to be retained in this game, vice versa.
+
+
+**Conclusion**
+
+![image](https://user-images.githubusercontent.com/94856154/156036765-f3ee23b5-f418-4425-9a08-4609860a39bc.png)
+
+Overall, we were able to engineer some new features in our data to explore. While there is much more we could further investigate, we were able to confirm that our mobile game has been performing quite well in engaging new players based on our 30-day retention. We saw some patterns in player behaviour relative to win-streaks that did not appear to correlate with their 30-day retention. This gave us a little insight in guiding us towards other directions in terms of setting up new engagement strategies to further grow our player base.
 
 
