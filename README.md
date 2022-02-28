@@ -39,6 +39,8 @@ To sum up the indication, the region doesn't matter. Although there are some day
 # Q3: Does people retained or not retained has more people winning the game?
 ![1](https://user-images.githubusercontent.com/94856154/156032497-1f20d64c-8788-4ec1-a869-630a11a1a96d.png)
 
+For our deeper investigation, we wanted to see if players who were retained after 30 days had more winning rounds compared to those that were not retained but winned the games. We presumebly think that people who are retained would be most likely to win more games since they are more expereinced in playing it. 
 
+To verify whether the statement is true or false, we then first start a query to extract the winning games, then selecting people who are retained or not retained to make the comparison. As 
 
 
