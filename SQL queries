@@ -6,13 +6,12 @@
 
 
 ***Q1: Is 30-day rolling retention increasing or decreasing over the lifecycle of the game?***
-```
+
 SELECT
   joined AS Day_joined,
   COUNT(player_id) Players_joined,
   SUM(Retention_Status) Players_retained,
-  ROUND((SUM(Retention_Status)/COUNT(player_id)),2)*100 as fractional_retention,
-```   
+  ROUND((SUM(Retention_Status)/COUNT(player_id)),2)*100 as fractional_retention,  
 FROM (
   SELECT
     p.player_id,
