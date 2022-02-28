@@ -36,6 +36,34 @@ It's fairly to say that the players are equally distributed in all regions since
 
 To sum up the indication, the region doesn't matter. Although there are some days we could see total retained players' differences in the year, the result would always regress to the reference value if we look at the pictures from a quarter to quarter basis.
 
+```
+SELECT 
+    location,
+    SUM(Retention_Status) as People_retained
+        FROM( 
+         SELECT
+            p.player_id,
+            p.joined,
+            p.location,
+            p.age,
+            CASE WHEN (MAX(M.day) - MIN(p.joined)) >= 30 THEN 1 END AS Retention_Status
+    
+            FROM
+            `howard-projects.SQL_Project_Cohort2.matches_info` m
+            JOIN
+            `howard-projects.SQL_Project_Cohort2.player_info` p
+            ON
+            p.player_id = m.player_id
+            GROUP BY
+            p.joined,
+            p.player_id,
+            p.location,
+            p.age)
+GROUP BY location
+Order by location
+LIMIT 1000
+```
+
 # Q3: Does people retained or not retained has more winning games?
 ![1](https://user-images.githubusercontent.com/94856154/156032497-1f20d64c-8788-4ec1-a869-630a11a1a96d.png)
 
