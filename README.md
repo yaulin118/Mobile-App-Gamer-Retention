@@ -94,11 +94,6 @@ LIMIT 1000
 # Q3: Do players with rolling 30-day retention spend more money?
 ![image](https://user-images.githubusercontent.com/94856154/156240909-aa21da32-2caf-41ed-97a6-956997412b4c.png)
 
-For our deeper investigation, we wanted to see if players retained after 30 days had more winning rounds than those not retained but winning the games. We presumably think that retained people would be most likely to win more games since they are more experienced in playing it. 
-
-To verify whether the statement is true or false, we first start a query to extract the winning games, then select people who are retained or not retained to make the comparison. The result solidates our presumption. We noticed that 43847 winning games include 26538 games(60%) that people are retained compared to 17309 games(40%) with people not retained. In our findings, people with more practice are more likely to have a higher winning rate, and people with a higher winning rate are more willing to be retained in this game, vice versa.
-
-
 ```
 SELECT ROUND(SUM(sum_price),2) AS sum_total_spend,
        retention_table.retention_status
