@@ -91,7 +91,7 @@ Order by location
 LIMIT 1000
 ```
 
-# Q3: Does people retained or not retained has more winning games?
+# Q3: Do players with rolling 30-day retention spend more money?
 ![image](https://user-images.githubusercontent.com/94856154/156240909-aa21da32-2caf-41ed-97a6-956997412b4c.png)
 
 For our deeper investigation, we wanted to see if players retained after 30 days had more winning rounds than those not retained but winning the games. We presumably think that retained people would be most likely to win more games since they are more experienced in playing it. 
@@ -100,37 +100,42 @@ To verify whether the statement is true or false, we first start a query to extr
 
 
 ```
-SELECT 
-COUNT(CASE WHEN WINS = 1 AND Retention_Status = 1 THEN 0 END) AS Win_people_retained,
-COUNT(CASE WHEN WINS = 1 AND Retention_Status = 0 THEN 0 END) AS Win_people_NOT_retained
+SELECT ROUND(SUM(sum_price),2) AS sum_total_spend,
+       retention_table.retention_status
+FROM
+       (SELECT 
+       pr.player_id,
+       Round(SUM(i.price),2) as sum_price
+ FROM
+       `myjunoproject.cohort2_Mysql_project.purchase_info`  pr
+ JOIN
+       `myjunoproject.cohort2_Mysql_project.item_info`   i
+ ON
+        pr.item_id = i.item_id
+ GROUP BY 
+        pr.player_id) total_spends
+
+ JOIN
+    (SELECT 
+    player_id,
+    CASE WHEN max_days >= joined + 29 THEN 1 ELSE 0  END retention_status
 
 FROM
-(SELECT
-    DISTINCT player_id AS Winner_ID,    
-    SUM(wins) as wins,  
-    Retention_Status,
- 
-FROM(
-    SELECT
-    Distinct m.player_id,
-    outcome,
-    CASE WHEN outcome = "win" Then 1
-    else 0
-    END AS wins,
-    CASE WHEN outcome = "loss" Then 2
-    else 0
-    END AS loss,
-    CASE WHEN (MAX(M.day) - MIN(p.joined)) >= 30 THEN 1 -- Retained or not?
-    ELSE 0
-    END AS Retention_Status
-    FROM  `howard-projects.SQL_Project_Cohort2.matches_info` m
-    JOIN  `howard-projects.SQL_Project_Cohort2.player_info` p
-    ON  p.player_id = m.player_id
-    GROUP BY outcome, player_id)
-
-GROUP BY player_id, Retention_Status) 
-
-WHERE WINS = 1 
+    (SELECT 
+    p.player_id,
+    Max(m.day) AS max_days,
+    p.joined
+FROM 
+   `myjunoproject.cohort2_Mysql_project.matches_info` m
+JOIN 
+   `cohort2_Mysql_project.player_info` p
+ ON
+    p.player_id = M.player_id
+    GROUP BY p.player_id,p.joined) AS max_retained_days
+    ORDER BY 2 desc) retention_table
+    ON
+    total_spends.player_id = retention_table.player_id
+ GROUP BY retention_table.retention_status;
 ```
 
 
