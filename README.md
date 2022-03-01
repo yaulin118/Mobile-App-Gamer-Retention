@@ -59,9 +59,9 @@ GROUP BY
 
 As indicated by the visualizations provided, we have a total of 28859 people with rolling 30-day retention. The highest retention player number is located in South America(4863), followed by North America(4855) and Oceania(4832).
 
-It's fairly to say that the players are equally distributed in all regions since the percentage of the differences between the highest player region amount and the lowest is less than 3%. 
+In the analysis, this game is equally famous in all the locations since the percentage of the differences between the highest player region amount and the lowest is less than 3%..
 
-To sum up the indication, the region doesn't matter. Although there are some days we could see total retained players' differences in the year, the result would always regress to the reference value if we look at the pictures from a quarter to quarter basis.
+To sum up the indication, the region doesn't matter. Although there are some days we could see total retained player's differences in the year, the result would always regress to the reference value if we look at the pictures from a quarter to quarter basis.
 
 ```
 SELECT 
