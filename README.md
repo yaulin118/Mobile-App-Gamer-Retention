@@ -140,3 +140,5 @@ WHERE WINS = 1
 
 In short sentences, the datasets provided us with some threads that was able to help us find the trend. While there is much more we could further investigate, we were able to tell the retention rate is quite stable throughout the year. However, it isn't necessarily a negative indication, but it's worth focusing on long-term strategies. Also, we saw players are distributed to all regions, which indicates that our marketing strategies is equally launched by geography. Last but not least, in our findings, people with a higher winning rate are more willing to be retained in this game. If we want to increase retention, we could perhaps redesign the winning criteria to increase the retention rate. 
 
+ Also we can see that game is popular among all the locations and people who play it more are in their 20's. We had a limited data so our analysis are limited. Retention status is consistent but at the end it has a big drop. Which could be caused by different elements either game is too easy for the players or too too tough or their is not enough interesting elements in the game for certain age groups. So people join and get bored of it.
+
