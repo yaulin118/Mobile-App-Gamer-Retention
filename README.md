@@ -92,7 +92,7 @@ LIMIT 1000
 ```
 
 # Q3: Does people retained or not retained has more winning games?
-![1](https://user-images.githubusercontent.com/94856154/156032497-1f20d64c-8788-4ec1-a869-630a11a1a96d.png)
+![image](https://user-images.githubusercontent.com/94856154/156240909-aa21da32-2caf-41ed-97a6-956997412b4c.png)
 
 For our deeper investigation, we wanted to see if players retained after 30 days had more winning rounds than those not retained but winning the games. We presumably think that retained people would be most likely to win more games since they are more experienced in playing it. 
 
