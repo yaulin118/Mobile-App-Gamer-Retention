@@ -55,7 +55,7 @@ GROUP BY
   ```
 
 # Q2: Do players with rolling 30-day retention come from specific regions?
-![Regions with Retention](https://user-images.githubusercontent.com/94856154/155785811-1577e20a-7def-4b74-a941-93ac43973bd3.png)
+![image](https://user-images.githubusercontent.com/94856154/156240809-8ab78ac7-5125-4958-9912-fe3894702f46.png)
 
 As indicated by the visualizations provided, we have a total of 28859 people with rolling 30-day retention. The highest retention player number is located in South America(4863), followed by North America(4855) and Oceania(4832).
 
