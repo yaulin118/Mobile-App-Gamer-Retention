@@ -21,7 +21,7 @@ The SQL table should be including the folloing columns:
 
 
 # Q1: Is 30-day rolling retention increasing or decreasing over the lifecycle of the game?
-![Increasing or decreasing over the lifecycle of the game_](https://user-images.githubusercontent.com/94856154/155636714-af4473ef-619e-46f0-b7cc-c324c78c8896.png)
+![image](https://user-images.githubusercontent.com/94856154/156240714-4ebf333f-0500-485f-b3a5-ddfa3846df42.png)
 
 We excluded the last 30 days of the year from our analysis because those who joined in the previous 30 days would have automatically been categorized as Not-Retained. As a result, notably, we saw a dramatic decline at the end of the year. Therefore, we only choose the data from Day 1 to Day 335 for this project.
 
